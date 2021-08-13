@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>|| TYPING SPEED TEST ||</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="centerDiv">
+            <p id="demo">Timer</p>
+            <h1>Welcome To typing speed test.......</h1>
+            <h1 id="testQuestion"></h1>
+            <textarea name="" id="userInput" cols="100" rows="10" placeholder="Press Start to view the question..............."></textarea>
+            <button class="btn" id="myBtn" onclick="fun()">S T A R T</button>
+        </div>
+    </div>
+
+    <script>
+        var errors = 0;
+        function fun(){
+
+            document.getElementById("testQuestion").innerHTML = "Be the change that you wish to see in the world";
+
+
+
+
+            var seconds = 0;
+            var myVar = setInterval(function() {
+                // timer.innerHTML = seconds++;
+                document.getElementById("demo").innerHTML = seconds++ + " seconds";
+            }, 1000);
+
+
+
+           var question = document.getElementById('testQuestion').innerHTML;
+           //    console.log(question);
+           var userInput = document.getElementById('userInput').value;
+           //    console.log(userInput);
+           
+        //    console.log( question.split(" ").length)
+           var questionWords= question.split(" ");
+        //    console.log(questionWords) ;
+
+
+           var userWords= userInput.split(" ");
+           console.log(userWords) ;
+
+
+        //    no. of error words
+        for(var j = 0 ; j<questionWords.length ; j++){
+
+            if(questionWords[j] != userWords[j]){
+                errors++;
+            }
+        } 
+        console.log(errors);
+
+        // document.getElementById("myBtn").disabled = true;
+        // document.getElementById("myBtn").innerHTML = "DONE";
+        myBtn.innerHTML = "DONE";
+        var done = document.getElementById("myBtn");
+        done.onclick=function(){
+
+            clearInterval(myVar);
+            document.getElementById("demo").innerHTML = " ";
+            document.getElementById("testQuestion").innerHTML = "It took you " + seconds + " seconds to type..." + 
+            (questionWords.length - errors) + " correct out of " + questionWords.length + " words and the total no of errors are " + errors;
+
+        };
+        }
+
+
+    </script>
+
+
+<script>
+   
+    </script>
+</body>
+</html>
+
+
+
+
+
